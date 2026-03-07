@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# 参数（你力学课学过的）
 m = 1.0      # 质量 kg
 k = 4.0      # 劲度系数 N/m
 omega = np.sqrt(k / m)
