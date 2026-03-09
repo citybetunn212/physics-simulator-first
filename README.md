@@ -28,3 +28,8 @@
 ```bash
 pip install numpy matplotlib
 python simple_harmonic_oscillator.py
+
+### 项目效果预览
+
+![交互仿真界面](images/oscillator.png)
+![相图 (x-v)](images/phase_portrait.png)
