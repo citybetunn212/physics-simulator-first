@@ -52,4 +52,21 @@ s_k.on_changed(update)
 s_b.on_changed(update)
 s_F.on_changed(update)
 
+# ==================== 新增：相图（x-v 图）====================
+fig2, ax2 = plt.subplots(figsize=(8, 6))
+ax2.set_title('Phase Portrait (x - v)')
+ax2.set_xlabel('Displacement x (m)')
+ax2.set_ylabel('Velocity v (m/s)')
+ax2.grid(True)
+
+# 计算速度 v = dx/dt
+v1 = -0.5 * np.sqrt(k0/m0) * np.sin(np.sqrt(k0/m0) * t)
+v2 = np.gradient(x2 := 0.5 * np.exp(-b0*t/(2*m0)) * np.cos(np.sqrt((k0/m0) - (b0/(2*m0))**2) * t), t)  # 阻尼
+v3 = np.gradient(x3 := (F0/m0) / np.sqrt(((k0/m0) - omega_d0**2)**2 + (b0*omega_d0/m0)**2) * np.cos(omega_d0 * t - np.pi/2), t)
+
+ax2.plot(0.5 * np.cos(np.sqrt(k0/m0) * t), v1, label='Undamped', alpha=0.7)
+ax2.plot(x2, v2, label='Damped', alpha=0.7)
+ax2.plot(x3, v3, label='Forced', alpha=0.7)
+ax2.legend()
+
 plt.show()
